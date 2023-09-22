@@ -1,14 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Image, Text } from 'react-native';
+import ListaNomes from './components/ListaNomes';
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('./assets/01-adesivo-umbrella-biohazard-residente-evil-14x15-playstation-removebg-preview.png')}
+          style={styles.logo}
+        />
+        <Text style={styles.text}>
+          <Text style={styles.boldText}>
+            Selecionados para a Operação Racoon City
+          </Text>
+        </Text>
+      </View>
+      <ListaNomes />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,4 +28,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  logoContainer: {
+    alignItems: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 18,
+    textAlign: 'center', // Alinhar o texto ao centro
+  },
+  boldText: {
+    fontSize: 24, // Aumentar o tamanho do texto
+    fontWeight: 'bold', // Deixar o texto em negrito
+  },
 });
+
+export default App;
